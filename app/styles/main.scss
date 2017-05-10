@@ -1,13 +1,118 @@
 @import "partials/variables";
 
 html, body {
-    font-family: $josefin;
+    font-family: $raleway;
     margin: 0;
     padding: 0;
 }
 
 html, body {
     height: 100%;
-    color: $black;
+    color: $darkgrey;
+    font-weight: 300;
 }
 
+html{
+    //padding: 40px;
+}
+
+h1,h2,h3,h4{
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+}
+
+.main-view{
+    height: 100%;
+    .row{
+        height: 100%;
+    }
+    .one{
+        padding: 0px 30px;
+        height: 100%;
+        background: $black;
+        overflow-y: hidden;
+        .header{
+            padding: 25px 0px;
+            font-family: $dots;
+            color: $pink2;
+            font-size: 45px;
+            //font-weight: 500;
+            a{
+            color: inherit;
+            text-decoration: none;
+                &:hover{
+                    color: inherit;
+                }
+            }
+        }
+
+        .intro{
+            z-index: 3;
+            line-height: 1.7em;
+            font-weight: 300;
+            font-size: 23px;
+            color: $lightgrey;
+            //padding-right: 200px;
+            letter-spacing: 0.2px;
+            span{
+                color: $pink2;
+            }
+        }
+        .svgs{
+            z-index: 1;
+            position: absolute;
+            bottom: -10px;
+            .popcorn1{
+                display: none !important;
+                svg{
+                    display: none;
+                }
+                width: 200px;
+                fill: $lightgrey;
+                display: inline-block;
+            }
+            .popcorn2{
+                width: 350px;
+                fill: $pink2;
+                //display: inline-block;
+                position: absolute;
+                float: left;
+                left: -120px;
+                top: -360px;
+            }
+            .popcorn3{
+                width: 200px;
+                fill: $darkgrey;
+                position: absolute;
+                float: left;
+                top: -210px;
+                left: 50px;
+            }
+        }
+    }
+    .two{
+        height: 100%;
+        padding: 0px 30px;
+        .header{
+            padding: 25px 0px;
+            font-family: $raleway;
+            color: $darkgrey;
+            font-size: 30px;
+            font-weight: 300;
+            a{
+            color: inherit;
+            text-decoration: none;
+                &:hover{
+                    color: inherit;
+                }
+            }
+        }
+    }
+}
+
+@media (max-height:600px ){
+    .svgs{
+        opacity: 0.3;
+    }
+}

@@ -31,11 +31,7 @@
     <!-- Color the status bar on mobile devices -->
     <meta name="theme-color" content="#2F3BA2">
 
-    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
-    <!--
-    <link rel="canonical" href="http://www.example.com/">
-    -->
-
+    <!--style sheets -->
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway+Dots" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,700" rel="stylesheet">
@@ -43,22 +39,19 @@
     <link rel="stylesheet" href="styles/bootstrap-gridsystem-only.css">
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="styles/main.css">
-
-    <script src="scripts/libraries/jquery-3.0.0.min.js"></script>
-
   </head>
+  
   <body>
-    <!-- Add your site or app content here -->
-
+    
     <div class="main-view container-fluid">
       <div class="row">
-
         <div class="one col-xs-12 col-md-8">
           <div class="header">
             <a href="">Popcorn css</a>
           </div>
           <div class="intro">
-            PopcornCss is a collection of reusable web components. Here you can find web components like drawers, spinners, navbars etc and use them to <span>create something beautiful</span>. 
+            PopcornCss is a collection of reusable web components. Here you can find web components like drawers, spinners, navbars etc and use them to <span>create something beautiful</span>.<br>
+            <button onclick="theWall()">See the Contributors Wall</button> 
           </div>
           <div class="svgs">
             <div class="popcorn1">
@@ -206,22 +199,58 @@
                 </svg>
             </div>
           </div>
+          <footer>
+            <div class="icons">
+                <a href="https://twitter.com/arpitbansalx" target="_blank"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a>
+                <a href=""><i class="fa fa-google-plus-official fa-2x" aria-hidden="true"></i></a>
+                <a href=""><i class="fa fa-facebook fa-2x" aria-hidden="true"></i></a>
+                <a href=""><i class="fa fa-github fa-2x" aria-hidden="true"></i></a>
+                <!-- <a href=""><i class="fa fa-pinterest fa-2x" aria-hidden="true"></i></a> -->
+                <a href="" target="_blank"><i class="fa fa-behance fa-2x" aria-hidden="true"></i></a>
+                <a href=""><i class="fa fa-dribbble fa-2x" aria-hidden="true"></i></a>
+                <!-- <a href=""><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a> -->
+            </div>
+          </footer>
         </div>
         <!--ends column 1-->
         <div class="two col-xs-12 col-md-4">
           <div class="header">
             <a href="">Components</a>
           </div>
-        </div>
+          <div class="content">
+            <h1>Spinners</h1>
+            <hr>
+            <div class="items">
+              <button class="item" onclick="openCurtains('spinners/x.html')" >Spinner one <span>view</span></button>
+              <button class="item" onclick="openCurtains('spinners/y.html')" >Spinner two<span>view</span></button>
+              <button class="item" onclick="openCurtains('spinners/z.html')" >Spinner three<span>view</span></button>
+            </div>
 
+            <!-- content div ends below -->
+          </div>
+          <footer>Created with <span> <i class="fa fa-heart fa-2x" aria-hidden="true"></i></span> 
+ by <a href="https://twitter.com/arpitbansalx" target="_blank">Arpit bansal</a></footer>
+        </div>
       </div>
     </div>
 
+    <div class="auditorium">
+      <div class="drawer-handle open" onclick="closeCurtains()">
+        <span></span>
+      </div>
+      <div class="stage hidden">Loading</div>
+      <button class="backstage-door" onclick="goBackstage()">View Code</button>
+      <textarea class="backstage"></textarea>
+    </div>
+
+    <div class="theWall">
+      
+    </div>
     
-    <!-- build:js scripts/main.min.js -->
+    <!--scripts -->
+    <script src="scripts/libraries/jquery-3.0.0.min.js"></script>
     <script src="scripts/main.js"></script>
     <script src="scripts/custom.js"></script>
-    <!-- endbuild -->
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>
@@ -232,6 +261,5 @@
       ga('create', 'UA-XXXXX-X', 'auto');
       ga('send', 'pageview');
     </script>
-    <!-- Built with love using Web Starter Kit -->
   </body>
 </html>

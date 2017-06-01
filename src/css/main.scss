@@ -170,15 +170,16 @@ img{
                 font-weight: 300;
             }
             h1{
-                font-size: 26px;
+                font-size: 24px;
                 text-align: right;
-                color: $pink2
+                color: $pink2;
+                margin-top: 20px;
             }
             .items{
                 .item{
                     border: none;
                     background: none;
-                    font-size: 20px;
+                    font-size: 18px;
                     width: 100%;
                     text-align: left;
                     padding: 10px 10px;
@@ -253,6 +254,9 @@ img{
             display: block;
         }
     }
+    .stage{
+        height: 100%;
+    }
     .backstage-door{
         position: absolute;
         z-index: 10;
@@ -308,7 +312,7 @@ img{
         cursor: pointer;
         height: 2px;
         width: 32px;
-        background: $lightblack;
+        background: $lightgrey;
         position: absolute;
         display: block;
         content: '';
@@ -318,7 +322,7 @@ img{
             cursor: pointer;
             height: 2px;
             width: 32px;
-            background: $lightblack;
+            background: $lightgrey;
             position: absolute;
             display: block;
             content: '';

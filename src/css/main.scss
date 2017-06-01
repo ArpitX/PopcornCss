@@ -1,5 +1,12 @@
 @import "partials/variables";
 
+// @font-face {
+//   font-family: 'Mumsies';
+//   src: url('../fonts/Mumsies.ttf') format('truetype');
+//   font-weight: normal;
+//   font-style: normal;
+// }
+
 html, body {
     font-family: $raleway;
     margin: 0;
@@ -16,6 +23,10 @@ html{
     //padding: 40px;
 }
 
+#app{
+    height: inherit;
+}
+
 h1,h2,h3,h4{
     margin: 0;
     padding: 0;
@@ -27,6 +38,10 @@ a{
     &:hover{
         text-decoration: none;
     }
+}
+
+img{
+    max-width: 100%;
 }
 
 .main-view{
@@ -72,6 +87,8 @@ a{
                 font-size: 18px;
                 color: $blue;
                 padding: 10px 0px;
+                z-index: 2;
+                position: relative;
                 &:hover{
                     color: $pink2;
                 }
@@ -83,7 +100,7 @@ a{
         .svgs{
             z-index: 1;
             position: absolute;
-            bottom: -10px;
+            bottom: -30px;
             .popcorn1{
                 display: none !important;
                 svg{
@@ -260,7 +277,7 @@ a{
     }
     .backstage{
         font-size: 14px;
-        padding: 30px;
+        padding: 60px;
         border: none;
         outline: none;
         position: absolute;
@@ -356,13 +373,123 @@ a{
 }
 
 .theWall{
+    overflow: hidden;
     display: none;
     position: absolute;
     z-index: 10;
     width: 100%;
     height: 100%;
-    background-color: $white;
+    top: 0;
+    // padding: 30px;
+    // background-image: radial-gradient(73% 147%, #EADFDF 59%, #ECE2DF 100%), radial-gradient(91% 146%, rgba(255,255,255,0.50) 47%, rgba(0,0,0,0.50) 100%);
+ // background-blend-mode: screen;
+// background-color: rgba(0,0,0,0.2);
+ // background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);
+ // background-image: linear-gradient(to top, #FFE6FA 0%,#E3FDF5 100%);
+ // background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+    // background-image: linear-gradient(to bottom, #ace0f9 0%, #ffffff 100%);
+
+    // background-image: linear-gradient(#FFFEFF 0%, #ff4c43 100%);
+    // opacity: 0.9 ;
+    background-color: white;
+    .container-fluid{
+        height: 100%;
+        .row{
+            height: 100%;
+        }
+    }
+    .brushstrokes{
+        // overflow: hidden;
+        position: absolute;
+        z-index: 0;
+        transform: rotate(-77deg);
+        width: 1000px;
+        right: -100px;
+        bottom: -301px;
+    }
+    .signatures{
+        height: 100%;
+    }
+    .contribute{
+        // background: $white;
+        height: 100%;
+        padding: 30px;
+        padding-top: 10px;
+        // overflow-y: scroll;
+        overflow-x: hidden;
+        header{
+            padding: 25px 0px;
+            font-family: $raleway;
+            color: $pink2;
+            font-size: 30px;
+            font-weight: 300;
+            a{
+            color: inherit;
+            text-decoration: none;
+                &:hover{
+                    color: inherit;
+                }
+            }
+        }
+        blockquote{
+            font-size: 18px;
+            margin: 15px 0px;
+            letter-spacing: 0.2px;
+            font-weight: 500;
+        }
+        .content{
+            padding: 25px 0px;
+            font-size: 18px;
+            font-weight: 400;
+            h1{
+                font-size: 23px;
+                text-align: left;
+                color: $pink2;
+                margin-bottom: 25px;
+                font-weight: 400;
+            }
+            a{
+                color: $pink2;
+            }
+            .note{
+                font-size: 16px;
+                color: $pink2;
+            }
+            span{
+                color: $white;
+                background: rgba(51,132,204,0.7);
+            }
+            
+        }
+        footer{
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: 30px;
+            padding: 12px;
+            font-size: 16px;
+            // background: $lightlightgrey;
+            left: 0px;
+            a{
+                color: $blue;
+                &:hover{
+                    color: $pink2;
+                }
+            }
+            span{
+                display: inline-block;
+            }
+            i{
+                color: $pink2;
+                display: block;
+                position: relative;
+                top: 4px;
+            }
+        }
+    }
+
 }
+
 
 
 @media (max-height:600px ){
@@ -379,5 +506,14 @@ a{
     .main-view .two{
         overflow-y: initial;
         height: auto;
+    }
+    .signatures{
+        display: none;
+    }
+    button.see-wall{
+        display: none;
+    }
+    .backstage{
+        padding: 20px !important;
     }
 }

@@ -1,6 +1,6 @@
 const gulp = require('gulp');
 const babel = require('gulp-babel');
-const browserSync = require('browser-sync');
+const browserSync = require('browser-sync').create();
 const webpack = require('gulp-webpack');
 const del = require('del');
 const runSequence = require('run-sequence');
@@ -109,10 +109,8 @@ gulp.task('copy-images', ()=>{
 });
 
 gulp.task('serve', ['html','scripts','styles','copy','copy-images','copy-fonts'], ()=>{
-	browserSync({
-		notify: false,
-		server: ['build'],
-		port: 3000 
+	browserSync.init({
+		server: './build' 
 	});
 	gulp.watch(['src/**/*.html'],['html', reload]);
 	// gulp.watch(['src/**/*.js'], ['webpack', reload]);

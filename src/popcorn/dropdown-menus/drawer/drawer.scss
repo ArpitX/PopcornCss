@@ -1,29 +1,35 @@
-//this is the html
-<div class="drawer">
+$line-color: #3498db;
+$line-color-open: white;
+$dropdown-menu-color: #3498db;
+$dropdown-menu-item-color: white;
+$dropdown-menu-item-hover-color: darkblue;
 
-  <div class="drawer-handle" onclick="openDrawer()">
-    <span></span>
-  </div>
+html,body{
+    margin: 0px;
+    font-family: monospace;
+}
 
-  <div class="drawer-space">
-    <a class="item ">SIGN UP</a>
-    <a class="item ">LOG IN</a>
-  </div>
-
-</div>
-
-//this is the sass code for the drawer
+.drawer *{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.drawer:before,
+.drawer:after *{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
 
 .drawer {
-    display: none;
 
     .drawer-handle {
-        //display: none;
+
         position: absolute;
-        left: 23px;
-        top: 25px;
-        z-index: 10;
-        width: 30px;
+        left: 45px;
+        top: 45px;
+        z-index: 501;
+        width: 32px;
         height: 35px;
         cursor: pointer;
 
@@ -31,8 +37,8 @@
             position: absolute;
             cursor: pointer;
             height: 2px;
-            width: 28px;
-            background: $lightblack;
+            width: 32px;
+            background: $line-color;
             position: absolute;
             display: block;
             content: '';
@@ -41,8 +47,8 @@
             &:before, &:after {
                 cursor: pointer;
                 height: 2px;
-                width: 28px;
-                background: $lightblack;
+                width: 32px;
+                background: $line-color;
                 position: absolute;
                 display: block;
                 content: '';
@@ -50,7 +56,7 @@
             }
 
             &:before {
-                left: 7px;
+
             }
         }
 
@@ -67,7 +73,7 @@
                 -ms-transition: all 0.2s ease;
                 -o-transition: all 0.2s ease;
                 transition: all 0.2s ease;
-                top: 12px;
+                top: 16px;
             }
 
             &:before {
@@ -76,63 +82,58 @@
                 -ms-transition: all 0.2s ease;
                 -o-transition: all 0.2s ease;
                 transition: all 0.2s ease;
-                top: 6px;
+                top: 8px;
             }
         }
     }
 
     .drawer-handle.open {
-        span {
-            transform: translateX(7px);
-            &:before {
-                transform: translateX(-14px);
+        span{
+            transform: rotate(45deg);
+            top: 10px;
+            background: $line-color-open;
+            &:before{
+                background-color: transparent;
             }
-            &:after {
-                transform: translateX(0px);
+            &:after{
+                background: $line-color-open;
+                transform: rotate(90deg);
+                top: 0px;
             }
         }
     }
 
     .drawer-space {
         padding: 30px 10px;
+        // padding-top: 110px;
         position: absolute;
-        z-index: 3;
+        z-index: 500;
         transform: translateY(-1000%);
         width: 100%;
         //background-image: linear-gradient(to bottom, #ace0f9 0%, #ffffff 100%);
-        background-color: $lightblue;
-        color: $white;
+        background-color: $dropdown-menu-color;
         transition: 400ms;
         text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         &.open {
+            top: 0;
+            height: 50%;
             transform: translateY(0%);
         }
         .item{
-            font-weight: 600;
-            letter-spacing: 1px;
-            color: $white;
+            color: $dropdown-menu-item-color;
             display: block;
             font-size: 18px;
             padding: 10px 0px;
             &:hover{
+                color: $dropdown-menu-item-hover-color;
+                cursor: pointer;
                 text-decoration: none;
-                color: $darkblue;
+                // color: darkblue;
             }
         }
     }
 
 }
-
-@media (max-width: 700px){
-    .drawer{
-        display: block;
-    }
-}
-
-//this is the jquery code for the drawer
-<script type="text/javascript">
-function openDrawer(){
-        $('.drawer-handle').toggleClass('open');
-        $('.drawer-space').toggleClass('open');
-}
-</script>

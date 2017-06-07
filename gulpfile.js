@@ -110,7 +110,8 @@ gulp.task('copy-images', ()=>{
 
 gulp.task('serve', ['html','scripts','styles','copy','copy-images','copy-fonts'], ()=>{
 	browserSync.init({
-		server: './build' 
+		server: './build',
+		notify: false 
 	});
 	gulp.watch(['src/**/*.html'],['html', reload]);
 	// gulp.watch(['src/**/*.js'], ['webpack', reload]);

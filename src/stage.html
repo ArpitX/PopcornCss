@@ -3,27 +3,19 @@
 <head>
 	<title>Stage</title>
 	<style type="text/css">
-		* {
-		  -webkit-box-sizing: border-box;
-		  -moz-box-sizing: border-box;
-		  box-sizing: border-box;
-		}
-		*:before,
-		*:after {
-		  -webkit-box-sizing: border-box;
-		  -moz-box-sizing: border-box;
-		  box-sizing: border-box;
-		}
 		html,body{
 			margin: 0px;
 			padding: 0px;
 			font-family: consolas, monospace;
 		}
 		.code-view{
+			-webkit-box-sizing: border-box;
+		  	-moz-box-sizing: border-box;
+		  	box-sizing: border-box;
 			font-size: 14px;
-	        padding: 60px;
-	        border: none;
-	        outline: none;
+	        padding: 20px;
+	        padding-top: 70px;
+	
 	        position: absolute;
 	        display: none;
 	        background-color: rgba(0,0,0,0.8);
@@ -32,6 +24,25 @@
 	        width: 100%;
 	        height: 100%;
 	        z-index: 500; 
+		}
+		.code-view *{
+			-webkit-box-sizing: border-box;
+		  	-moz-box-sizing: border-box;
+		  	box-sizing: border-box;
+			/* display: flex;
+			flex-wrap: wrap;
+			align-content: center; */
+		}
+		.code-view textarea{
+			background-color: transparent;
+	        color: rgb(0,255,0);
+			width: 100%;
+			border: none;
+	        outline: none;
+		}
+		.code-view .heading{
+			font-size: 18px;
+			
 		}
 		.code-view:focus{
 			outline: none;
@@ -175,7 +186,16 @@
 </div>
 
 </div>
-<textarea class="code-view"></textarea>
+<div class="code-view">
+	<div class="heading">Html</div>
+	<textarea class="html"></textarea>
+	<div class="heading">Css</div>
+	<textarea class="css"></textarea>
+	<div class="heading">Sass</div>
+	<textarea class="sass"></textarea>
+	<div class="heading">Javascript</div>
+	<textarea class="javascript"></textarea>
+</div>
 <button class="backstage-door" onclick="goBackstage()">View Code</button>
 <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
@@ -197,7 +217,10 @@
 	}
 	var path = getUrlVars()["path"];
 	$('.view').load(path, function(responseText){
-		$('.code-view').text(responseText);
+		var htmlPath = path+ '/main.html';
+		$.ajax({url:htmlPath, success: function(result){
+			$('textarea.html').text(result);
+		}});
 	});
 	function goBackstage(){
 		$('.code-view').fadeToggle(400);

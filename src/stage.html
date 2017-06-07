@@ -7,6 +7,9 @@
 			margin: 0px;
 			padding: 0px;
 			font-family: consolas, monospace;
+			-webkit-box-sizing: border-box;
+		  	-moz-box-sizing: border-box;
+		  	box-sizing: border-box;
 		}
 		.code-view{
 			-webkit-box-sizing: border-box;
@@ -18,11 +21,11 @@
 	
 	        position: absolute;
 	        display: none;
-	        background-color: rgba(0,0,0,0.8);
+	        background-color: rgb(0,0,0);
 	        color: rgb(0,255,0);
 	        font-family: consolas, monospace;
 	        width: 100%;
-	        height: 100%;
+	        min-height: 100%;
 	        z-index: 500; 
 		}
 		.code-view *{
@@ -39,6 +42,7 @@
 			width: 100%;
 			border: none;
 	        outline: none;
+	        min-height: 600px;
 		}
 		.code-view .heading{
 			font-size: 18px;
@@ -188,7 +192,7 @@
 </div>
 <div class="code-view">
 	<div class="heading">Html</div>
-	<textarea class="html"></textarea>
+	<textarea class="html autoExpand"></textarea>
 	<div class="heading">Css</div>
 	<textarea class="css"></textarea>
 	<div class="heading">Sass</div>
@@ -221,6 +225,14 @@
 		$.ajax({url:htmlPath, success: function(result){
 			$('textarea.html').text(result);
 		}});
+		var cssPath = path+ '/main.css';
+		$.ajax({url:cssPath, success: function(result){
+			$('textarea.css').text(result);
+		}});
+		var sassPath = path+ '/main.scss';
+		$.ajax({url:sassPath, success: function(result){
+			$('textarea.sass').text(result);
+		}});
 	});
 	function goBackstage(){
 		$('.code-view').fadeToggle(400);
@@ -234,5 +246,6 @@
 		}
 	}
 </script>
+
 </body>
 </html>

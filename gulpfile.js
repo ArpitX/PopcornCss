@@ -8,6 +8,7 @@ const uglify = require('gulp-uglify');
 const htmlmin = require('gulp-htmlmin');
 const gulpsass = require('gulp-sass');
 const cssnano = require('gulp-cssnano');
+const autoprefixer = require('gulp-autoprefixer');
 
 const reload = browserSync.reload;
  
@@ -25,7 +26,7 @@ gulp.task('scripts-prod',()=>{
 	}))
 	.pipe(uglify())
 	.pipe(gulp.dest('dist'));
-})
+});
 
 gulp.task('webpack', ()=>{
 	return gulp.src('src/js/main.js')
@@ -60,6 +61,18 @@ gulp.task('html-prod', ()=>{
 });
 
 gulp.task('styles', ()=>{
+	const AUTOPREFIXER_BROWSERS = [
+    'ie >= 10',
+    'ie_mob >= 10',
+    'ff >= 30',
+    'chrome >= 34',
+    'safari >= 7',
+    'opera >= 23',
+    'ios >= 7',
+    'android >= 4.4',
+    'bb >= 10'
+  	];
+
 	return gulp.src([
 		'src/**/*.scss',
 		'src/**/*.css'
@@ -67,9 +80,22 @@ gulp.task('styles', ()=>{
 	.pipe(gulpsass({
 		precision: 10
 	}))
+	.pipe(autoprefixer(AUTOPREFIXER_BROWSERS))
 	.pipe(gulp.dest('build'));
 });
 gulp.task('styles-prod',()=>{
+	const AUTOPREFIXER_BROWSERS = [
+    'ie >= 10',
+    'ie_mob >= 10',
+    'ff >= 30',
+    'chrome >= 34',
+    'safari >= 7',
+    'opera >= 23',
+    'ios >= 7',
+    'android >= 4.4',
+    'bb >= 10'
+  	];
+
 	return gulp.src([
 		'src/**/*.scss',
 		'src/**/*.css'
@@ -77,12 +103,13 @@ gulp.task('styles-prod',()=>{
 	.pipe(gulpsass({
 		precision: 10
 	}))
+	.pipe(autoprefixer(AUTOPREFIXER_BROWSERS))
 	.pipe(cssnano())
 	.pipe(gulp.dest('dist'));
 });
 
 gulp.task('clean', ()=>{
-	del(['dist/*', '!dist/.git'], {dot: true})
+	del(['dist/*','build', '!dist/.git'], {dot: true})
 });
 
 gulp.task('copy', ()=>{
@@ -108,7 +135,15 @@ gulp.task('copy-images', ()=>{
 	.pipe(gulp.dest('dist/img/'));
 });
 
-gulp.task('serve', ['html','scripts','styles','copy','copy-images','copy-fonts'], ()=>{
+gulp.task('copy-popcorn-folder', ()=>{
+	gulp.src([
+		'src/popcorn/**'
+	])
+	.pipe(gulp.dest('build/popcorn'))
+	.pipe(gulp.dest('dist/popcorn'));
+});
+
+gulp.task('serve', ['html','scripts','styles','copy','copy-images','copy-fonts','copy-popcorn-folder'], ()=>{
 	browserSync.init({
 		server: './build',
 		notify: false 
@@ -128,7 +163,7 @@ gulp.task('serve:dist', ['default'], ()=>{
 
 gulp.task('default', cb =>{
 	runSequence(
-		['clean','html-prod','scripts-prod','styles-prod','copy','copy-images','copy-fonts'],
+		['clean','html-prod','scripts-prod','styles-prod','copy','copy-images','copy-fonts','copy-popcorn-folder'],
 		cb
 	)
 });

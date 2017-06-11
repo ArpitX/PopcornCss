@@ -6,7 +6,7 @@
             <a href="">Popcorn css</a>
           </div>
           <div class="intro">
-            PopcornCss is a collection of reusable web components. Here you can find web components like drawers, spinners, navbars etc and use them to <span>create something beautiful</span>.<br>
+            PopcornCss is a collection of beautiful web components. Here you can find web components like drawers, spinners, navbars etc and use them to <span>create something beautiful</span>.<br>
             <button class="see-wall" onclick="theWall()">See the Contributors Wall</button> 
           </div>
           <div class="svgs">
@@ -187,8 +187,15 @@
             <h1 class="component-headers">Spinners</h1>
             <hr>
             <div class="items">
-              <button class="item" onclick="openCurtains('spinners/simply-straight/index.html')" >Simply straight<span>view</span></button>
-              <button class="item" onclick="openCurtains('spinners/wavvy/index.html')" >Wavvy <span>view</span></button>
+              <button class="item" onclick="openCurtains('spinners/simply-straight')" >Simply straight<span>view</span></button>
+              <button class="item" onclick="openCurtains('spinners/wavvy')" >Wavvy <span>view</span></button>
+            </div>
+
+            <!--sharing begin here -->  
+            <h1 class="component-headers">Social Media</h1>
+            <hr>
+            <div class="items">
+              <button class="item" onclick="openCurtains('sharing/slideIn')" >SlideIn<span>view</span></button>
             </div>
 
             <!-- content div ends below -->
@@ -344,6 +351,16 @@
       </div>
     </div>
     
+    <div id="slideInShareCard">
+      <button id="cross-btn"><i class="fa fa-close " aria-hidden="true"></i></button>
+        <div class="quote">It would be awesome if you could share this page. Thanks.</div>
+      <div class="icons">
+            <a  href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fpopcorncss.com&via=arp_ban&text=I+love+using+PopcornCss,+which+is+collection+of+beautiful+web+components.+I+think+you+will+like+it+too." target="_blank"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpopcorncss.com&title=PopcornCss,+A+collection+of+beautiful+web+components&description=I+love+using+PopcornCss,+which+is+collection+of+beautiful+web+components.+I+think+you+will+like+it+too." target="_blank"><i class="fa fa-facebook-official fa-2x" aria-hidden="true"></i></a>
+            <a href="https://plus.google.com/share?url=https%3A%2F%2Fpopcorncss.com" target="_blank"><i class="fa fa-google-plus-official fa-2x" aria-hidden="true"></i></a>
+            <!-- <a href="https://www.pinterest.com/pin/create/button" target="_blank"><i class="fa fa-pinterest fa-2x" aria-hidden="true"></i></a> -->
+        </div>
+    </div>
     
     <!-- <script src="js/libraries/jquery-3.0.0.min.js"></script> -->
   

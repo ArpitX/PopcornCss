@@ -544,9 +544,70 @@ img{
         margin-bottom: 10px;
         a{
             color: $icons-color;
+            // margin-right: 7px;
+            &:hover{
+                // color: $icons-hover-color;
+            }
+        }
+        a.twitter{
+            position: relative;
+            top: -6px;
+        }
+        .addthis_inline_share_toolbox{
+            display: inline-block !important;
+        }
+        .at-share-btn-elements{
+            display: inline-block !important;
+            margin-top: 10px;
+            margin-bottom: 5px;
+            a{
+                background-color: transparent !important;
+                margin: 0px !important;
+                padding: 0px !important;
+                outline: none;
+                &:focus{
+                    outline: none;
+                }
+            }
+            a.at-svc-twitter{
+                display: none;
+            }
+        }
+
+    }
+}
+
+.staticShareCard{
+    font-size: 14px;
+    background-image: linear-gradient(to right, #f78ca0 0%, #f9748f 19%, #fd868c 60%, #fe9a8b 100%);    
+    padding: 10px;
+    border-radius: 4px;
+    margin: 20px 0px;
+    .quote{
+        margin-top: 10px;
+        color: $text-color;
+    }
+    .icons{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        a{
+            color: $icons-color;
             margin-right: 7px;
             &:hover{
                 color: $icons-hover-color;
+            }
+        }
+    }
+    .at-share-btn-elements{
+        margin-top: 10px;
+        margin-bottom: 5px;
+        a{
+            background-color: transparent !important;
+            margin: 0px !important;
+            padding: 0px !important;
+            outline: none;
+            &:focus{
+                outline: none;
             }
         }
     }

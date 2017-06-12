@@ -146,7 +146,8 @@ gulp.task('copy-popcorn-folder', ()=>{
 gulp.task('serve', ['html','scripts','styles','copy','copy-images','copy-fonts','copy-popcorn-folder'], ()=>{
 	browserSync.init({
 		server: './build',
-		notify: false 
+		notify: false,
+		https: true 
 	});
 	gulp.watch(['src/**/*.html'],['html', reload]);
 	// gulp.watch(['src/**/*.js'], ['webpack', reload]);
@@ -154,7 +155,7 @@ gulp.task('serve', ['html','scripts','styles','copy','copy-images','copy-fonts',
 	gulp.watch(['src/**/*.js'], ['scripts', reload]);
 });
 gulp.task('serve:dist', ['default'], ()=>{
-	browserSync({
+	browserSync.init({
 		notify: false,
 		server: ['dist'],
 		port: 3002 

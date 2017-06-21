@@ -147,7 +147,7 @@ gulp.task('serve', ['html','scripts','styles','copy','copy-images','copy-fonts',
 	browserSync.init({
 		server: './build',
 		notify: false,
-		https: true 
+		https: false 
 	});
 	gulp.watch(['src/**/*.html'],['html', reload]);
 	// gulp.watch(['src/**/*.js'], ['webpack', reload]);

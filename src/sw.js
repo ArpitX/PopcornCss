@@ -5,8 +5,7 @@ let urlsToCache = [
 	'/css/main.css',
 	'/css/grid.css',
 	'/js/main.js',
-	'/fonts/font-awesome/css/font-awesome.min.css',
-	'/main.html'
+	'/fonts/font-awesome/css/font-awesome.min.css'
 ];
 self.addEventListener('install',(event)=>{
 	event.waitUntil(
@@ -36,19 +35,19 @@ self.addEventListener('fetch',(event)=>{
 		.then((response)=>{
 			if(response)
 				return response;
-			var fetchRequest = event.request.clone();
-			return fetch(fetchRequest).then((response)=>{
-				if(!response || response.status !== 200 || response.type !== 'basic'){
-					return response;
-				}
-				var responseToCache = response.clone();
-				caches.open(CACHE_NAME)
-				.then((cache)=>{
-					cache.put(event.request, responseToCache);
-				});
-				return response
-			});
-			// return fetch(event.request);
+			// var fetchRequest = event.request.clone();
+			// return fetch(fetchRequest).then((response)=>{
+			// 	if(!response || response.status !== 200 || response.type !== 'basic'){
+			// 		return response;
+			// 	}
+			// 	var responseToCache = response.clone();
+			// 	caches.open(CACHE_NAME)
+			// 	.then((cache)=>{
+			// 		cache.put(event.request, responseToCache);
+			// 	});
+			// 	return response
+			// });
+			return fetch(event.request);
 		})
 	);
 });

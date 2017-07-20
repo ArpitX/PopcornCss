@@ -109,7 +109,7 @@ gulp.task('styles-prod',()=>{
 });
 
 gulp.task('clean', ()=>{
-	del(['dist/*','build', '!dist/.git'], {dot: true})
+	del(['dist/*','build', '!dist/.git', '!dist/CNAME'], {dot: true})
 });
 
 gulp.task('copy', ()=>{
@@ -143,7 +143,7 @@ gulp.task('copy-popcorn-folder', ()=>{
 	.pipe(gulp.dest('dist/popcorn'));
 });
 
-gulp.task('serve', ['html','scripts','styles','copy','copy-images','copy-fonts','copy-popcorn-folder'], ()=>{
+gulp.task('serve', ['html','scripts','styles','copy','copy-images','copy-fonts'], ()=>{
 	browserSync.init({
 		server: './build',
 		notify: false,
@@ -164,7 +164,7 @@ gulp.task('serve:dist', ['default'], ()=>{
 
 gulp.task('default', cb =>{
 	runSequence(
-		['clean','html-prod','scripts-prod','styles-prod','copy','copy-images','copy-fonts','copy-popcorn-folder'],
+		['clean','html-prod','scripts-prod','styles-prod','copy','copy-images','copy-fonts'],
 		cb
 	)
 });
